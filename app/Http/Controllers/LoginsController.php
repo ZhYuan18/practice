@@ -3,21 +3,48 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginsController extends Controller
 {
+    public function __construct(){
+
+        $this->middleware('guest',[
+            'only'=>['create']
+        ]);
+
+    }
+
     //登录页面
     public function create(){
         return view('logins.create');
     }
 
     //登录
-    public function store(){
+    public function store(Request $request){
 
+        $credentials = $this->validate($request,[
+            'email'=>'required|email',
+            'password'=>'required',
+        ]);
+
+        if(Auth::attempt($credentials,$request->has('remember'))){
+            //认证成功操作
+            session()->flash('info','登录成功');
+            return redirect()->intended(route('users.show',[Auth::user()]));
+        }
+        else{
+            //认证失败操作
+            session()->flash('danger','登录失败，用户名或密码错误');
+            return redirect()->route('login');
+        }
+        return;
     }
 
     //退出
-    public function logout(){
-
+    public function destroy(){
+        Auth::logout();
+        session()->flash('info','退出成功');
+        return redirect()->route('login');
     }
 }

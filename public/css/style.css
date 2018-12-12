@@ -3,6 +3,12 @@
     margin-top: 15px;
 }
 
+/*提示消息*/
+.message_box{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 /*头部样式*/
 .header_box{
     width:100%;
@@ -23,6 +29,34 @@
     margin-bottom: .5rem;
 }
 
+/*用户中心*/
+.users_centerbox{
+    text-align: center;
+}
+.users_centerbox h2{
+    margin-top: 6px;
+}
+.gravatar{
+    border-radius: 50%;
+}
+
+#users_info_box{
+    margin: .8rem 0 0;
+}
+
+.userinfo_avatar{
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.userinfo_avatar img{
+    border-radius: 50%;
+}
+
+#logout button{
+    margin-left: 10px;
+}
+
 /*关于*/
 .about_box h1{
     text-align: center;
@@ -31,6 +65,12 @@
 /*帮助*/
 .help_box h1{
     text-align: center;
+}
+
+/*登录*/
+#remember_box input{
+    vertical-align: middle;
+    margin-right: 5px;
 }
 
 /*底部样式*/

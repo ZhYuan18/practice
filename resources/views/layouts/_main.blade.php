@@ -14,6 +14,7 @@
     @include('layouts._header')
     <div class="middle_box">
         <div class="container">
+            @include('shared._message')
             <div class="content_box">
                 @yield('content')
             </div>
