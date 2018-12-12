@@ -12,10 +12,10 @@
 */
 
 //首页
-Route::get('/','IndexsController@index');
+Route::get('/','IndexsController@index')->name('index');
 
 //帮助
-Route::get('help','IndexsController@help');
+Route::get('help','IndexsController@help')->name('help');
 
 //关于
-Route::get('about','IndexsController@about');
+Route::get('about','IndexsController@about')->name('about');

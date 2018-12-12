@@ -2,5 +2,7 @@
 @section('title','帮助')
 
 @section('content')
-    帮助
+   <div class="help_box">
+       <h1>帮助</h1>
+   </div>
 @stop

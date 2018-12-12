@@ -2,5 +2,7 @@
 @section('title','关于')
 
 @section('content')
-    关于
+    <div class="about_box">
+        <h1>关于</h1>
+    </div>
 @stop
