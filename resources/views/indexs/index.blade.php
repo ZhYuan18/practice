@@ -8,7 +8,7 @@
             一切，将从这里开始
         </p>
         <p>
-            <a href="" class="btn btn-primary">现在注册</a>
+            <a href="{{ route('users.create') }}" class="btn btn-primary">现在注册</a>
         </p>
     </div>
 @stop

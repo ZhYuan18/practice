@@ -34,6 +34,11 @@
 }
 
 /*底部样式*/
+.footer_box{
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top:1px solid #ccc;
+}
 #footer_box_l{
     text-indent: 10px;
 }

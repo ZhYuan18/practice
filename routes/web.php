@@ -19,3 +19,11 @@ Route::get('help','IndexsController@help')->name('help');
 
 //关于
 Route::get('about','IndexsController@about')->name('about');
+
+//注册和用户操作路由
+Route::resource('users','UsersController');
+
+//登录
+Route::get('login','LoginsController@create')->name('login');
+Route::post('login','LoginsController@store')->name('login');
+Route::delete('logout','LoginsController@destroy')->name('logout');
