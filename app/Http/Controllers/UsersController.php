@@ -21,17 +21,20 @@ class UsersController extends Controller
 
     //用户列表
     public function index(){
-        $users = User::all();
+        $users = User::paginate(10);
         return view('users.index',['users'=>$users]);
     }
+
     //用户中心
     public function show(User $user){
         return view('users.show',compact('user'));
     }
+
     //创建用户页面
     public function create(){
         return view('users.create');
     }
+
     //创建用户
     public function store(Request $request){
 
@@ -52,11 +55,13 @@ class UsersController extends Controller
         session()->flash('success','欢迎，您将在这里开启一段新的旅程~');
         return redirect()->route('users.show',[$user]);
     }
+
     //编辑用户页面
     public function edit(User $user){
         $this->authorize('update',$user);
         return view('users.edit',compact('user'));
     }
+
     //编辑用户
     public function update(User $user,Request $request){
         //数据校验
@@ -77,8 +82,12 @@ class UsersController extends Controller
         session()->flash('success','更新资料成功');
         return redirect()->route('users.show',$user->id);
     }
-    //删除用户
-    public function destroy(){
 
+    //删除用户
+    public function destroy(User $user){
+        $this->authorize('destroy',$user);
+        $user->delete();
+        session()->flash('info','删除用户成功');
+        return back();
     }
 }
