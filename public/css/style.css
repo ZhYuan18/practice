@@ -53,6 +53,21 @@
     border-radius: 50%;
 }
 
+.usercenter_box{
+    margin-bottom: 15px;
+}
+.usercenter_box .usercenter_avatar img{
+    border-radius: 50%;
+}
+.usercenter_box .usercenter_username{
+    height:80px;
+    line-height: 80px;
+}
+.usercenter_box .usercenter_delete{
+    height:80px;
+    line-height: 80px;
+}
+
 #logout button{
     margin-left: 10px;
 }

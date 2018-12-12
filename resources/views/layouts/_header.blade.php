@@ -4,7 +4,7 @@
             <a class="navbar-brand" href="{{ route('index') }}" id="logo">Laravel</a>
             <ul class="navbar-nav" id="nav_font_color">
                 @if(Auth::check())
-                    <li class="nav-item"><a class="nav-link" href="">用户列表</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('users.index') }}">用户列表</a></li>
                     <li class="dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">
                             {{ Auth::user()->name }} <b class="caret"></b>

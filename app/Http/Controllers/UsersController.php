@@ -21,7 +21,8 @@ class UsersController extends Controller
 
     //用户列表
     public function index(){
-
+        $users = User::all();
+        return view('users.index',['users'=>$users]);
     }
     //用户中心
     public function show(User $user){
