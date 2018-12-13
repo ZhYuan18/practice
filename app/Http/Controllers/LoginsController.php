@@ -30,8 +30,16 @@ class LoginsController extends Controller
 
         if(Auth::attempt($credentials,$request->has('remember'))){
             //认证成功操作
-            session()->flash('info','登录成功');
-            return redirect()->intended(route('users.show',[Auth::user()]));
+            //判断有没有激活
+            if(Auth::user()->activiated){
+                session()->flash('info','欢迎回来！');
+                return redirect()->intended(route('users.show',[Auth::user()]));
+            }
+            else{
+                Auth::logout();
+                session()->flash('warning','你的账号未激活，请检查邮箱中的注册邮件进行激活。');
+                return redirect('/');
+            }
         }
         else{
             //认证失败操作
