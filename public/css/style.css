@@ -32,6 +32,7 @@
 /*用户中心*/
 .users_centerbox{
     text-align: center;
+    margin-left: 20px;
 }
 .users_centerbox h2{
     margin-top: 6px;
@@ -86,6 +87,40 @@
 #remember_box input{
     vertical-align: middle;
     margin-right: 5px;
+}
+
+/*个人中心*/
+.users_centerbox .username{
+    margin-bottom: 10px;
+}
+.user_content_box{
+    margin-top: 40px;
+}
+.send_btn{
+    margin-top: 10px;
+}
+.info_header_title{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.info_list_row{
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+.info_list_row .row{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.info_list_img{
+    vertical-align: middle;
+}
+
+.list_avatar{
+    border-radius: 50%;
 }
 
 /*底部样式*/
