@@ -68,11 +68,17 @@ class ResetPasswordController extends Controller
                 'token'=>$request->token
             ])->first();
 
+            $create_time = strtotime($userinfo->created_at);
 
-            if(empty($userinfo)){
-                session()->flash('status','重置密码失败');
+            if(time()-$create_time>7200){
+                session()->flash('status','令牌失效，请重新回到密码重置页面');
                 return back()->withInput();
             }
+
+            /*if(empty($userinfo)){
+                session()->flash('status','重置密码失败');
+                return back()->withInput();
+            }*/
 
             $user = User::where('email',$request->email)->first();
             $user->password = bcrypt($request->password);
