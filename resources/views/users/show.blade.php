@@ -5,90 +5,47 @@
     <div class="row user_content_box">
         <div class="col-md-9">
             <div class="send_box">
-                <form action="" method="post">
-                    <textarea class="col-md-12" rows="4" placeholder="聊聊新鲜事儿..."></textarea>
+                @include('shared._error')
+                <form action="{{ route('statuses.store') }}" method="post">
+                    {{ csrf_field() }}
+                    <textarea name="content" class="col-md-12" rows="4" placeholder="聊聊新鲜事儿...">{{ old('content') }}</textarea>
                     <button type="submit" class="btn btn-primary send_btn">发布</button>
                 </form>
             </div>
             <div class="info_box">
                 <h2 class="info_header_title">动态列表</h2>
                 <div class="info_list_box">
-                    <div class="row info_list_row">
-                        <div class="col-md-2 info_list_img">
-                            <img class="list_avatar align-self-center" src="{{ $user->gravatar('80') }}"/>
-                        </div>
-                        <div class="col-md-10">
-                            <div class="row justify-content-between">
-                                <div class="">
-                                    <a href="">{{ $user->name }}</a>
-                                    <p>5年前</p>
+                    @if (count($statuses) > 0)
+                        @foreach($statuses as $status)
+                            <div class="row info_list_row">
+                                <div class="col-md-2 info_list_img">
+                                    <img class="list_avatar align-self-center" src="{{ $user->gravatar('80') }}"/>
                                 </div>
-                                <div class="">
-                                    <a href="#" class="btn btn-danger">删除</a>
-                                </div>
-                            </div>
-                            <div>
-                                改革开放是坚持和发展中国特色社会主义的必由之路为主题，全景式回顾改革开放40年历程，以风云激荡的感人故事，铺陈出一部国家民族砥砺奋进的壮丽史诗，深刻揭示中国特色社会主义是建立在我们党长期奋斗基础上，是由我们党带领人民历经千辛万苦、付出各种代价、接力探索取得的，响亮回答改革开放是决定当代中国命运的关键一招，也是决定实现“两个一百年”奋斗目标、实现中华民族伟大复兴的关键一招。
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row info_list_row">
-                        <div class="col-md-2">
-                            <img class="list_avatar" src="{{ $user->gravatar('80') }}"/>
-                        </div>
-                        <div class="col-md-10">
-                            <div class="row justify-content-between">
-                                <div class="">
-                                    <a href="">{{ $user->name }}</a>
-                                    <p>5年前</p>
-                                </div>
-                                <div class="">
-                                    <a href="#" class="btn btn-danger">删除</a>
+                                <div class="col-md-10">
+                                    <div class="row justify-content-between">
+                                        <div class="">
+                                            <a href="">{{ $user->name }}</a>
+                                            <p>{{ $status->created_at->diffForHumans() }}</p>
+                                        </div>
+                                        <div class="">
+                                            @can('destroy', $status)
+                                                <a href="#">
+                                                    <form action="{{ route('statuses.destroy', $status->id) }}" method="POST">
+                                                        {{ csrf_field() }}
+                                                        {{ method_field('DELETE') }}
+                                                        <button type="submit" class="btn btn-danger">删除</button>
+                                                    </form>
+                                                </a>
+                                            @endcan
+                                        </div>
+                                    </div>
+                                    <div>
+                                        {{ $status->content }}
+                                    </div>
                                 </div>
                             </div>
-                            <div>
-                                改革开放是坚持和发展中国特色社会主义的必由之路为主题，全景式回顾改革开放40年历程，以风云激荡的感人故事，铺陈出一部国家民族砥砺奋进的壮丽史诗，深刻揭示中国特色社会主义是建立在我们党长期奋斗基础上，是由我们党带领人民历经千辛万苦、付出各种代价、接力探索取得的，响亮回答改革开放是决定当代中国命运的关键一招，也是决定实现“两个一百年”奋斗目标、实现中华民族伟大复兴的关键一招。
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row info_list_row">
-                        <div class="col-md-2">
-                            <img class="list_avatar" src="{{ $user->gravatar('80') }}"/>
-                        </div>
-                        <div class="col-md-10">
-                            <div class="row justify-content-between">
-                                <div class="">
-                                    <a href="">{{ $user->name }}</a>
-                                    <p>5年前</p>
-                                </div>
-                                <div class="">
-                                    <a href="#" class="btn btn-danger">删除</a>
-                                </div>
-                            </div>
-                            <div>
-                                改革开放是坚持和发展中国特色社会主义的必由之路为主题，全景式回顾改革开放40年历程，以风云激荡的感人故事，铺陈出一部国家民族砥砺奋进的壮丽史诗，深刻揭示中国特色社会主义是建立在我们党长期奋斗基础上，是由我们党带领人民历经千辛万苦、付出各种代价、接力探索取得的，响亮回答改革开放是决定当代中国命运的关键一招，也是决定实现“两个一百年”奋斗目标、实现中华民族伟大复兴的关键一招。
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row info_list_row">
-                        <div class="col-md-2">
-                            <img class="list_avatar" src="{{ $user->gravatar('80') }}"/>
-                        </div>
-                        <div class="col-md-10">
-                            <div class="row justify-content-between">
-                                <div class="">
-                                    <a href="">{{ $user->name }}</a>
-                                    <p>5年前</p>
-                                </div>
-                                <div class="">
-                                    <a href="#" class="btn btn-danger">删除</a>
-                                </div>
-                            </div>
-                            <div>
-                                改革开放是坚持和发展中国特色社会主义的必由之路为主题，全景式回顾改革开放40年历程，以风云激荡的感人故事，铺陈出一部国家民族砥砺奋进的壮丽史诗，深刻揭示中国特色社会主义是建立在我们党长期奋斗基础上，是由我们党带领人民历经千辛万苦、付出各种代价、接力探索取得的，响亮回答改革开放是决定当代中国命运的关键一招，也是决定实现“两个一百年”奋斗目标、实现中华民族伟大复兴的关键一招。
-                            </div>
-                        </div>
-                    </div>
+                        @endforeach
+                    @endif
                 </div>
             </div>
         </div>

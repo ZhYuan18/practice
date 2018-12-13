@@ -37,4 +37,9 @@ class User extends Authenticatable
     {
         $this->notify(new ResetPassword($token));
     }
+
+    //关联动态表
+    public function statuses(){
+        return $this->hasMany(Status::class);
+    }
 }
