@@ -120,4 +120,13 @@ class UsersController extends Controller
         });
 
     }
+
+    //粉丝列表
+    public function followers(){
+
+    }
+    //关注列表
+    public function followings(){
+
+    }
 }
