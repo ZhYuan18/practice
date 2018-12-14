@@ -29,6 +29,17 @@
     margin-bottom: .5rem;
 }
 
+.index_status__box{
+    border-top: 1px solid #ccc;
+    margin-bottom: 15px;
+    padding-top: 15px;
+}
+
+.index_status_times{
+    font-weight: normal;
+    font-size: 16px;
+}
+
 /*用户中心*/
 .users_centerbox{
     text-align: center;
@@ -69,6 +80,28 @@
     line-height: 80px;
 }
 
+.userinfo_status_box{
+    border-top: 1px solid #ccc;
+    margin-bottom: 15px;
+    padding-top: 15px;
+}
+
+.userinfo_status_username{
+    font-size: 20px;
+}
+.userinfo_status_created{
+    font-size: 12px;
+    margin-bottom: 4px;
+    color: #999;
+}
+
+.userinfo_status_page{
+    margin-top: 40px;
+}
+.index_status_page{
+    margin-top: 40px;
+}
+
 #logout button{
     margin-left: 10px;
 }
@@ -97,26 +130,11 @@
     margin-top: 40px;
 }
 .send_btn{
-    margin-top: 10px;
-}
+     margin-top: 10px;
+ }
 .info_header_title{
     margin-top: 20px;
     margin-bottom: 20px;
-}
-
-.info_list_row{
-    margin-top: 20px;
-    border-top: 1px solid #ccc;
-    padding-top: 10px;
-}
-
-.info_list_row .row{
-    margin-left: 0px;
-    margin-right: 0px;
-}
-
-.info_list_img{
-    vertical-align: middle;
 }
 
 .list_avatar{

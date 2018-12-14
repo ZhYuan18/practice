@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Notifications\ResetPassword;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\DB;
 
 class User extends Authenticatable
 {
@@ -41,5 +42,16 @@ class User extends Authenticatable
     //关联动态表
     public function statuses(){
         return $this->hasMany(Status::class);
+    }
+
+    //获取所有的动态
+    public function getStatus(){
+
+      return $statuses = DB::table('statuses')
+            ->join('users','statuses.user_id','=','users.id')
+            ->orderBy('statuses.created_at','desc')
+            ->select('users.name','statuses.*')
+            ->paginate(3);
+
     }
 }

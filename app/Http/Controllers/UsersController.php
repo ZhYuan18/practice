@@ -28,7 +28,7 @@ class UsersController extends Controller
 
     //用户中心
     public function show(User $user){
-        $statuses = $user->statuses()->orderBy('created_at','desc')->paginate(10);
+        $statuses = $user->statuses()->orderBy('created_at','desc')->paginate(3);
         return view('users.show',compact('user','statuses'));
     }
 
