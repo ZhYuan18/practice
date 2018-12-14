@@ -11,6 +11,8 @@
                         </a>
                         <ul class="dropdown-menu" id="users_info_box">
                             <li class="nav-item"><a class="nav-link" href="{{ route('users.show',[Auth::user()->id]) }}">个人中心</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ route('users.followings',[Auth::user()->id]) }}">我的关注</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ route('users.followers',[Auth::user()->id]) }}">我的粉丝</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{ route('users.edit',[Auth::user()->id]) }}">编辑资料</a></li>
                             <div class="dropdown-divider"></div>
                             <li class="nav-item">
